@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Bull - Gives You Wings</title>
+    <style>
+
+        :root {
+            --rb-blue: #0b1c3a;
+            --rb-dark: #050b14;
+            --rb-red: #da122d;
+            --rb-yellow: #fde100;
+            --text-light: #ffffff;
+            --text-gray: #a0aec0;
+            --sans: 'Impact', 'Arial Black', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--rb-dark);
+            color: var(--text-light);
+            font-family: var(--body-font);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(5, 11, 20, 0.85);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: var(--sans);
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-light);
+        }
+
+        .logo span {
+            color: var(--rb-red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--rb-yellow);
+        }
+
+        .cta-btn {
+            background: var(--rb-red);
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: #b10e24;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            background: radial-gradient(circle at 70% 50%, var(--rb-blue) 0%, var(--rb-dark) 70%);
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-tagline {
+            color: var(--rb-yellow);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .hero h1 {
+            font-family: var(--sans);
+            font-size: 4.5rem;
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-light);
+        }
+
+        .hero p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .hero-visual {
+            position: absolute;
+            right: 10%;
+            top: 55%;
+            transform: translateY(-50%) rotate(-10deg);
+            width: 280px;
+            height: 520px;
+            background: linear-gradient(135deg, #1d4ed8 25%, #0b1c3a 25%, #0b1c3a 50%, #da122d 50%, #da122d 75%, #fde100 75%);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .hero-visual::before {
+            content: "RED BULL";
+            font-family: var(--sans);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 3rem;
+            transform: rotate(-90deg);
+            letter-spacing: 4px;
+        }
+
+        .products {
+            padding: 100px 5%;
+            background: #02060d;
+        }
+
+        .section-title {
+            font-family: var(--sans);
+            font-size: 3rem;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: linear-gradient(180px, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(253, 225, 0, 0.3);
+        }
+
+        .can-icon {
+            width: 80px;
+            height: 160px;
+            margin: 0 auto 30px;
+            border-radius: 6px;
+        }
+
+        .classic-can { background: linear-gradient(to bottom, #1e3a8a, #0b1c3a); }
+        .sugarfree-can { background: linear-gradient(to bottom, #60a5fa, #1e40af); }
+        .red-can { background: linear-gradient(to bottom, #ef4444, #991b1b); }
+
+        .product-card h3 {
+            font-family: var(--sans);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 968px) {
+            header { padding: 15px 5%; }
+            nav, .header-actions { display: none; } /* Simplified for structural brevity */
+            
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding-top: 120px;
+            }
+            .hero-content { max-width: 100%; }
+            .hero h1 { font-size: 3.2rem; }
+            .hero p { margin: 0 auto 35px; }
+            .hero-visual {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin-top: 50px;
+                width: 200px;
+                height: 380px;
+            }
+            .hero-visual::before { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Red<span>Bull</span></div>
+        <nav>
+            <ul>
+                <li><a href="#energy">Energy Drink</a></li>
+                <li><a href="#flavors">Flavors</a></li>
+                <li><a href="#athletes">Athletes</a></li>
+                <li><a href="#events">Events</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="cta-btn">Shop Now</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tagline">Vitalizes body and mind.</p>
+            <h1>Gives You <span>Wings.</span></h1>
+            <p>In 1987, Red Bull not only launched a completely new product, it created a whole new product category. Giving wings to people and ideas.</p>
+            <button class="cta-btn" style="padding: 15px 35px; font-size: 1rem;">Explore the Editions</button>
+        </div>
+        <div class="hero-visual"></div>
+    </section>
+
+    <section class="products" id="energy">
+        <h2 class="section-title">Choose Your Edition</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="can-icon classic-can"></div>
+                <h3>The Original</h3>
+                <p>The iconic energy drink appreciated worldwide by top athletes, professionals, and college students.</p>
+            </div>
+            <div class="product-card">
+                <div class="can-icon sugarfree-can"></div>
+                <h3>Sugarfree</h3>
+                <p>Red Bull Sugarfree is Red Bull Energy Drink without sugar, providing the exact same functional benefits.</p>
+            </div>
+            <div class="product-card">
+                <div class="can-icon red-can"></div>
+                <h3>The Red Edition</h3>
+                <p>The classic functional profile of Red Bull Energy Drink, featuring the sweet taste of fresh watermelon.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
